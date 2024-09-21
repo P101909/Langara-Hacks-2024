@@ -1,11 +1,22 @@
 {
   "manifest_version": 3,
-  "name": "My Extension",
-  "description": "Starter template built with ExtensionKit.io",
+  "name": "Let's be delusional",
+  "description": "Your virtual wingman",
   "version": "1.0.0",
   "icons": {
     "128": "icons/icon.png"
   },
+  "permissions": [
+    "storage",               
+    "activeTab",              
+    "scripting",              
+    "identity",               
+    "http://*/*",            
+    "https://*/*"            
+  ],
+  "host_permissions": [
+    "https://www.instagram.com/*" 
+  ],
   "action": {
     "default_icon": {
       "32": "icons/icon.png"
@@ -13,6 +24,18 @@
     "default_popup": "index.html",
     "default_title": "Open Popup"
   },
+  "background": {
+    "service_worker": "background.js"   
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.instagram.com/*"
+      ],
+      "js": ["contentScript.js"],
+      "run_at": "document_idle"          
+    }
+  ],
   "commands": {
     "_execute_browser_action": {
       "suggested_key": {
@@ -21,5 +44,11 @@
       },
       "description": "Toggle Popup"
     }
-  }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["images/graphic.png", "icons/icon.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
