@@ -1,0 +1,26 @@
+/* Add this to your css/index.css */
+body {
+    margin: 0;
+    padding: 0;
+    width: 250px; /* Set the desired width */
+    height: 700px; /* Set the desired height */
+  }
+  
+  .App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .content {
+    text-align: center;
+  }
+  
+  .graphic {
+    max-width: 100%;
+    height: auto;
+  }
+  
