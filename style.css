@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 250px;
+  height: 700px;
+}
+
+.meter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+meter {
+  transform: rotate(-90deg);
+  width: 50px; /* The thickness of the vertical meter */
+  height: 200px; /* The height of the vertical meter */
+}
+

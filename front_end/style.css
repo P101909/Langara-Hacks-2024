@@ -1,17 +1,20 @@
-#meter {
-  width:300px;
-  height: 30px
-  }
+.meter-container {
+  display: flex;
+  width: 1000px;
+  height: 125px;
+  margin-top: 500px;
+
+}
+
+meter {
+  transform: rotate(-90deg);
+  width: 1000px;
+  height: 125px;
+
+}
   
-  
-  .label_for_meter{
-  font-size: 24px;
-  }
-  
-  
-  input[type="text"]{
+input[type="text"]{
   width:100px;
   height: 50px;
   vertical-align: top;
   }
-  
