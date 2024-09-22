@@ -40,18 +40,19 @@ function calculateAffectionScore(score) {
   affectionScore = Math.max(0, Math.min(affectionScore, 100));
   // hit 100%?, shows the text box, if you want to make the meter to stop once it hits 100%, uncomment the "clearInterval(updateInterval)
   if (affectionScore >= 100) {
-    // clearInterval(updateInterval)
+    clearInterval(updateInterval)
         showMessage100()
     }else if(affectionScore >= 75){
-    // clearInterval(updateInterval)
+    clearInterval(updateInterval)
         showMessage75()
     }else if(affectionScore >= 50){
-    // clearInterval(updateInterval)
+    clearInterval(updateInterval)
         showMessage50()
     }else if(affectionScore >= 25){
-    // clearInterval(updateInterval)
+    clearInterval(updateInterval)
         showMessage25()
     }
+    meterFill.style.width = `${affectionScore}%`
   console.log("new affection score: " + affectionScore)
   return affectionScore
 }
@@ -63,7 +64,6 @@ function updateMeter() {
 
   // calcualte the affection score
   calculateAffectionScore(randomScore)
-  meterFill.style.width = `${affectionScore}%`
 }
 
 let updateInterval = setInterval(updateMeter, 1000);

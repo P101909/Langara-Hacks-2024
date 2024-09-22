@@ -41,10 +41,10 @@ function calculateAffectionScore(score) {
 function updateMeter() {
   // to be deleted once implement data fetch from the AI model
   const randomScore = generateRandomNum()
-
+  
+  meterFill.style.width = `${affectionScore}%`
   // calcualte the affection score
   calculateAffectionScore(randomScore)
-  meterFill.style.width = `${affectionScore}%`
 }
 
 let updateInterval = setInterval(updateMeter, 1000);
