@@ -62,9 +62,10 @@ body {
   }
   /* Heart Shape */
   .heart {
+    margin-left: 40px;
     position: relative;
-    width: 12.5px;
-    height: 12.5px;
+    width: 125px;
+    height: 125px;
     background-color: red;
     transform: rotate(-45deg);
     animation: beat 1s infinite ease-in-out;
@@ -76,22 +77,26 @@ body {
   .heart::after {
     content: '';
     position: absolute;
-    width: 12.5px;
-    height: 12.5px;
+    width: 125px;
+    height: 125px;
     background-color: red;
     border-radius: 50%;
   }
   
   .heart::before {
-    top: -6.25px;
+    top: -62.5px;
     left: 0;
   }
   
   .heart::after {
-    top: 0;
-    left: 6.25px;
-  }
-  
+      top: 0;
+      left: 62.5px;
+    }
+    
+    .heart.show {
+        display: block;
+        animation: heartAppear 5s forwards;
+    }
   /* Heartbeat animation */
   @keyframes beat {
     0%, 100% {
@@ -101,8 +106,29 @@ body {
       transform: scale(1.2) rotate(-45deg);
     }
   }  
+  @keyframes heartAppear {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
 
-  /* Fade-out effect */
+/* Floating upwards */
+@keyframes floatUp {
+    0% {
+        transform: translate(-50%, -50%); /* Start at the middle */
+    }
+    100% {
+        transform: translate(-50%, -150%); /* Move upwards by 150% of the height */
+    }
+}
+
+/* Fade-out effect */
 @keyframes fadeOut {
     0% {
         opacity: 1;
@@ -111,6 +137,26 @@ body {
         opacity: 0;
     }
 }
+
+
+@keyframes faceAppear {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+.crying-face.show {
+    display: block;
+    animation: faceAppear 5s forwards;
+}
+
 
 /* Class to trigger fade-out */
 .fade-out {
