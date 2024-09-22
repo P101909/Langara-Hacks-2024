@@ -1,9 +1,15 @@
-require('dotenv').config();
-const apiKey = process.env.OPENAI_API_KEY;
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.action === 'download') {
+    const blob = new Blob([message.content], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
 
-
-// Listener for browser action (extension icon click)
-chrome.action.onClicked.addListener((tab) => {
-  // Can be used to trigger popup or another action
-  console.log("Extension icon clicked!");
+    // Use the Chrome downloads API to save the file
+    chrome.downloads.download({
+      url: url,
+      filename: 'extracted_text.txt', // Filename for the text file
+      conflictAction: 'overwrite'
+    }, () => {
+      console.log('Text file saved from background script');
+    });
+  }
 });

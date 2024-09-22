@@ -1,82 +1,50 @@
-
 window.addEventListener('load', () => {
     console.log("Page fully loaded");
 
     function checkForMessagesDiv() {
-        const messagesDivs = document.querySelectorAll('div.x78zum5, div.xdt5ytf');
+        const messagesDivs = document.querySelectorAll('div.x78zum5.xdt5ytf');
         const texts = [];
 
-        if (messagesDivs.length > 0) {
-            messagesDivs.forEach((div) => {
-                texts.push(div.innerText);
-            });
+        // Iterate over each div and access its innerText
+        messagesDivs.forEach((div) => {
+            texts.push(div.innerText);
+        });
 
-            if (texts.length > 0) {
-                // Convert the text array to a single string
-                const textContent = texts.join('\n');
+        if (texts.length > 0) {
+            // Convert the array of texts into a single string with each text on a new line
+            const textContent = texts.join('\n');
 
-                // Save the text content as a file
-                const blob = new Blob([textContent], { type: 'text/plain' });
-                const url = URL.createObjectURL(blob);
+            // Create a Blob from the text content
+            const blob = new Blob([textContent], { type: 'text/plain' });
 
-                chrome.downloads.download({
-                    url: url,
-                    filename: 'extracted_text.txt',
-                    conflictAction: 'overwrite'
-                }, () => {
-                    console.log('Text file saved');
-                });
-            }
+            // Create a temporary anchor element
+            const a = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            a.href = url;
+            a.download = 'extracted_text.txt';  // The filename
+
+            // Append the anchor to the document, click it, and remove it
+            document.body.appendChild(a);
+            a.click();
+            setTimeout(() => {
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+            }, 0);
+
+            console.log('Text file saved directly via anchor tag.');
         } else {
-            console.log("No relevant divs found, checking again...");
+            console.log("No divs with the specified class found.");
         }
     }
 
-    // Check the DOM every 2 seconds (2000 milliseconds)
+    // Check for the divs every 2 seconds
     const intervalId = setInterval(() => {
         checkForMessagesDiv();
     }, 2000);
 
-    // Optional: Stop checking after a certain amount of time, e.g., 1 minute
+    // Stop checking after 1 minute
     setTimeout(() => {
         clearInterval(intervalId);
-        console.log("Stopped checking for messages div");
-    }, 60000); // 60000 ms = 1 minute
+        console.log("Stopped checking for messages div.");
+    }, 60000); // 1 minute
 });
-
-
-
-
-// require('dotenv').config();
-// const apiKey = process.env.OPENAI_API_KEY;
-
-
-
-
-// window.addEventListener('load', () => {
-//     console.log("Page fully loaded2");
-
-
-//     // Function to check for the div with class 'messages'
-//     function checkForMessagesDiv() {
-//         const messagesDiv = document.querySelector('.x9f619.x1ja2u2z.x193iq5w.xeuugli.x1r8uery.x1iyjqo2.xs83m0k.x78zum5.xdt5ytf.x6ikm8r.x10wlt62.x1n2onr6');
-
-//         if (messagesDiv) {
-//             console.log("Messages div found:", messagesDiv);
-//             // You can perform your operations here, e.g., reading messages
-//         } else {
-//             console.log("Messages div not found, checking again...");
-//         }
-//     }
-
-//     // Check the DOM every 2 seconds (2000 milliseconds)
-//     const intervalId = setInterval(() => {
-//         checkForMessagesDiv();
-//     }, 2000);
-
-//     // Optional: Stop checking after a certain amount of time, e.g., 1 minute
-//     setTimeout(() => {
-//         clearInterval(intervalId);
-//         console.log("Stopped checking for messages div");
-//     }, 60000); // 60000 ms = 1 minute
-// });
