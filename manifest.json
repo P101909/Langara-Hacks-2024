@@ -4,9 +4,7 @@
   "description": "Grabs text messages of your DMs with a girl and analyzes your chances with her ;)",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    //"test": "echo "Error: no test specified" && exit 1"
-  },
+  "scripts": {},
   "author": "",
   "license": "ISC",
   "dependencies": {
