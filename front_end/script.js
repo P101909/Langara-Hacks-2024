@@ -1,3 +1,9 @@
+// we need to make a function to fetch the data!!!! and change the other functions accordingly 
+// For now, generateRandomNum generate random numbers raningng from -100 to 100, and those numbers are the input for "calculateAffectionscore" function.
+// THings to do: 1. implement function that fetch data, 2: remove the randomNumberGenerator, 3: change other changes accordingly
+
+
+
 const meterFill = document.querySelector('.meter-fill')
 const messageBox = document.querySelector('.message')
 let affectionScore = 0;
@@ -11,7 +17,7 @@ function showMessage() {
 
 // generate random number, to be deleted once data feching function is implemented
 function generateRandomNum () {
-    return Math.floor(Math.random() * 100) 
+    return Math.floor(Math.random() * 201) -100
 }
 
 // calculate the affection score, score is given by the AI model
@@ -21,14 +27,13 @@ function calculateAffectionScore(score) {
   affectionScore += score
 
   affectionScore = Math.max(0, Math.min(affectionScore, 100));
-  // hit 100%? stops and shows the text box 
+  // hit 100%?, shows the text box, if you want to make the meter to stop once it hits 100%, uncomment the "clearInterval(updateInterval)
   if (affectionScore >= 100) {
-    clearInterval(updateInterval)
+    // clearInterval(updateInterval)
     showMessage()
   }
   console.log("new affection score: " + affectionScore)
   return affectionScore
-
 }
 
 // update the meter
@@ -41,7 +46,6 @@ function updateMeter() {
   meterFill.style.width = `${affectionScore}%`
 }
 
-// keep running the meter 
 let updateInterval = setInterval(updateMeter, 1000);
-// meter gets updated every 1 second
+// // this makes the keep running infitenytly, 1000 = 1 sec, and meter gets updated every 1 second
 setInterval(updateMeter, 10000)
