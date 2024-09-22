@@ -39,7 +39,7 @@ function getDivInnerText() {
     
     // Loop through each div and extract the innerText
     divs.forEach(div => {
-        allText.push(div.interText);
+        allText.push(div.innerText);
     });
     
     // Join all innerText into a single string
@@ -48,66 +48,25 @@ function getDivInnerText() {
     return allTextString;
 }
 
-// Function to monitor if the div content has changed
-function monitorDivContent(previousText) {
-    const currentText = getDivInnerText();
-
-    // If the content has changed, log the new text
-    if (currentText.length > 0 && currentText !== previousText) {
-        console.log("Div Texts Changed:", currentText);
-        return currentText;  // Update previousText with currentText
-    }
-
-    return previousText; // No change, return the previous text
-}
-
-window.addEventListener('load', async () => {
-    console.log("Loaded. test div");
-    // Get innerText of all divs and print it to the console
-    
-    let previousText = ''; // Store the previous text for comparison\
-    let text = getDivInnerText();
-
-    
-    console.log(text)
-
-});
-
-
-
-// // Function to check if the divs are available// Function to check if the divs' content has changed
-// function checkForDivs(intervalId, previousText) {
-//     const currentText = getDivInnerText();
-
-//     // Compare current text with previous text to prevent repeated logs
-//     if (currentText.length > 0 && currentText !== previousText) {
-//         console.log("Div Texts:", currentText);
-//         clearInterval(intervalId); // Stop the interval once text is found
-//     } else if (currentText === previousText) {
-//         console.log("Text hasn't changed, skipping...");
-//     }
-//     return currentText;
-// }
-
 window.addEventListener('load', async () => {
     console.log("Loaded. test div");
     // Get innerText of all divs and print it to the console
     let text = getDivInnerText();
     let previousText = ''; // Store the previous text for comparison
 
-    console.log(text)
+    try {
+        // Call the getScore function from API_Manager.js
+        const gptResponse = await getScore(text);
+
+        // Print GPT's response to the console
+        console.log(gptResponse);
+    } catch (error) {
+        console.error('Error getting GPT-4 response:', error);
+    }
 
 });
 
-    // try {
-    //     // Call the getScore function from API_Manager.js
-    //     const gptResponse = await getScore(inputMessage);
-
-    //     // Print GPT's response to the console
-    //     console.log(gptResponse);
-    // } catch (error) {
-    //     console.error('Error getting GPT-4 response:', error);
-    // }
+    
 
 
 // function checkForMessagesDiv() {
