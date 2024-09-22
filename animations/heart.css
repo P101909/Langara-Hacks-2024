@@ -60,10 +60,10 @@ body {
   }
   /* Heart Shape */
   .heart {
-    
+    margin-left: 40px;
     position: relative;
-    width: 12.5px;
-    height: 12.5px;
+    width: 125px;
+    height: 125px;
     background-color: red;
     transform: rotate(-45deg);
     animation: beat 1s infinite ease-in-out;
@@ -75,20 +75,20 @@ body {
   .heart::after {
     content: '';
     position: absolute;
-    width: 12.5px;
-    height: 12.5px;
+    width: 125px;
+    height: 125px;
     background-color: red;
     border-radius: 50%;
   }
   
   .heart::before {
-    top: -6.25px;
+    top: -62.5px;
     left: 0;
   }
   
   .heart::after {
       top: 0;
-      left: 6.25px;
+      left: 62.5px;
     }
     
     .heart.show {
@@ -154,10 +154,6 @@ body {
     display: block;
     animation: faceAppear 5s forwards;
 }
-
-
-
-
 
 
 /* Class to trigger fade-out */

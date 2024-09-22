@@ -6,7 +6,7 @@ let previousScore = 0;
 let affectionScore = 0;
 
 function calculateAffectionScore(score) {
-  affectionScore += score;
+  affectionScore = score;
   meterFill.style.width = `${affectionScore}%`;
 
   // Show heart if the score has increased
