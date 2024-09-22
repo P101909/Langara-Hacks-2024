@@ -6,6 +6,33 @@
   "icons": {
     "128": "icons/ExtensionImg.png"
   },
+  "permissions": [
+    "storage",               
+    "activeTab",              
+    "scripting",              
+    "identity",               
+    "http://localhost/*",     
+    "https://*/*"             
+  ],
+  "host_permissions": [
+    "http://localhost/*"      
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "Front_end.js",
+        "scripts/API_Manager.js",        
+        "contentScript.js"      
+      ],
+      "run_at": "document_idle"  
+    }
+  ],
   "action": {
     "default_icon": {
       "32": "icons/ExtensionImg.png"
