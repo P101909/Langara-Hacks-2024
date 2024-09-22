@@ -1,0 +1,52 @@
+
+.meter-container{
+  transform: rotate(-90deg);
+  width: 500px;
+  height: 50px;
+  background-color: rgb(245, 171, 171);
+  border-radius: 20px;
+  border-color: black;
+  overflow: hidden;
+  position: relative;
+  margin-top: 250px;
+ }
+
+.meter-fill {
+  height: 100%;
+  width: 0%; /* Initially set to 0 */
+  background: linear-gradient(to right, yellow 0%, orange 25%, red 50%, red 100%); /* Gradient */
+  transition: width 0.5s ease; 
+  border-radius: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+input[type="text"] {
+  width: 300px;
+  height: 40px;
+  font-size: 16px;
+  padding: 5px;
+  margin-top: 20px;
+  margin-left: 500px;
+}
+
+.message {
+  display: none; 
+  background-color: #f0bed8; 
+  color: #333; 
+  border: 2px solid #fb2dcb; 
+  border-radius: 8px; 
+  padding: 10px; 
+  font-size: 15px; 
+  font-weight: bold; 
+  text-align: center; 
+  position: fixed; 
+  top: 10%; 
+  left: 40%; 
+  z-index: 1000; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+
+  width: 100px;
+  height: auto;
+}
