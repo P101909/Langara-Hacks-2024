@@ -28,37 +28,21 @@ async function getScore(input) {
     }
 }
 
-
-// Function to get innerText of all divs with the given class names
 function getDivInnerText() {
     // Select all divs with the class name 'x78zum5 xdt5ytf'
     const divs = document.querySelectorAll('div.x78zum5.xdt5ytf');
 
-    // Create an array to store the innerText of each div
+    // Create an array to store the innerText of the first div only
     let allText = [];
-    let emptyCount = 0;
 
-    // Loop through each div and extract the innerText
-    for (let div of divs) {
-        const innerText = div.innerText.trim(); // Get the text and trim whitespace
-
-        // Check if the innerText is empty
-        if (innerText === '') {
-            emptyCount++;
-        } else {
-            emptyCount = 0; // Reset if a non-empty text is found
-        }
-
-        // If 5 consecutive empty spaces are found, stop adding to allText
-        if (emptyCount >= 2) {
-            console.log("Stopped adding text after encountering 2 consecutive empty spaces.");
-            break;
-        }
-
-        allText.push(innerText);
+    if (divs.length > 0) {
+        // Push the innerText of the first div into the array
+        allText.push(divs[0].innerText);
+    } else {
+        console.log("No divs found with the specified class name.");
     }
-    
-    // Join all innerText into a single string
+
+    // Join the innerText into a single string
     let allTextString = allText.join(' ');
 
     return allTextString;
@@ -66,26 +50,59 @@ function getDivInnerText() {
 
 window.addEventListener('load', async () => {
     console.log("Loaded. test div");
-    // // Get innerText of all divs and print it to the console
-    // let text = getDivInnerText();
-    // let previousText = ''; // Store the previous text for comparison
-    // console.log(text);
 
+    let text;
+    let new_next;
 
-     // Delay querying the divs by 3 seconds (3000 milliseconds)
-     setTimeout(() => {
-        let text = getDivInnerText();
-        console.log(text);
-    }, 3000); // 3000 milliseconds = 3 seconds
+    // Delay querying the divs by 500 milliseconds
+    setTimeout(async () => {  // Add async here to use await inside
+        text = getDivInnerText();
 
-    // try {
-    //     // Call the getScore function from API_Manager.js
-    //     const gptResponse = await getScore(text);
+        try {
+            // Call the getScore function
+            const gptResponse = await getScore(text);
+    
+            // Print GPT's response to the console
+            console.log(gptResponse);
+        } catch (error) {
+            console.error('Error getting GPT-4 response:', error);
+        }
+    }, 500); // 500 milliseconds delay
 
-    //     // Print GPT's response to the console
-    //     console.log(gptResponse);
-    // } catch (error) {
-    //     console.error('Error getting GPT-4 response:', error);
-    // }
+    // // Example of checking for changes every 500ms
+    // const intervalId = setInterval(() => {
+    //     new_next = getDivInnerText();
+    //     if (text !== new_next) {
+    //         text = new_next;
+    //         console.log("Updated text:", text);
+    //     }
+    // }, 500);
 
+    // Stop checking after 1 minute
+    setTimeout(() => {
+        clearInterval(intervalId);
+        console.log("Stopped checking for messages div");
+    }, 60000); // 1 minute
 });
+
+//   // Delay querying the divs by 3 seconds (3000 milliseconds)
+//   setInterval(() => {
+//     const newText = getDivInnerText();
+//     if (window.divInnerText) {
+//         // If the old text is a subset of the new text
+//         const newTextStartPoint = newText.indexOf(window.divInnerText);
+    
+//         if (newTextStartPoint !== 0) {
+//             const textDiff = newText.substr(newTextStartPoint + window.divInnerText.length);
+//             console.log({textDiff})
+//         }
+//     }
+    
+//     window.divInnerText = newText;
+//     console.log({ divInnerText: window.divInnerText });
+//  }, 500); // 3000 milliseconds = 3 seconds
+
+
+
+
+
