@@ -22,10 +22,10 @@ function showHeart() {
   setTimeout(() => heart.classList.remove('show'), 10000); // Hide after 10 seconds
 }
 
-function showCryingFace() {
-  cryingFace.classList.add('show');
-  setTimeout(() => cryingFace.classList.remove('show'), 10000); // Hide after 10 seconds
-}
+// function showCryingFace() {
+//   cryingFace.classList.add('show');
+//   setTimeout(() => cryingFace.classList.remove('show'), 10000); // Hide after 10 seconds
+// }
 
 let affectionScore = 0;
 
@@ -44,8 +44,6 @@ function calculateAffectionScore(score) {
 
   if (affectionScore > previousScore) {
     showHeart();
-  } else if (affectionScore < previousScore) {
-    showCryingFace();
   }
 
   previousScore = affectionScore;

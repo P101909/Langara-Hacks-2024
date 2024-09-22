@@ -33,9 +33,9 @@ input[type="text"] {
 
 .message {
   display: none; 
-  background-color: #ffeb3b; 
+  background-color: #f0bed8; 
   color: #333; 
-  border: 2px solid #fbc02d; 
+  border: 2px solid #fb2dcb; 
   border-radius: 8px; 
   padding: 10px; 
   font-size: 15px; 
