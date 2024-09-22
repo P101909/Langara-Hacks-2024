@@ -31,6 +31,12 @@ function showCryingFace() {
   setTimeout(() => cryingFace.classList.remove('show'), 10000); // Hide after 10 seconds
 }
 
+function updateMeter() {
+    const randomScore = Math.random()
+    calculateAffectionScore(randomScore)
+  }
+  
+  setInterval(updateMeter, 1000)
 
 // Example usage: Increment or decrement affectionScore
 // Call this function with the appropriate score change
