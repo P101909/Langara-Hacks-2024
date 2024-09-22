@@ -2,7 +2,7 @@
 
 
 .fetchButton {
-    background: linear-gradient(135deg, #cb11b2, #2575fc); /* Gradient background */
+    background: linear-gradient(135deg, #cb11b2, #1e60d3); /* Gradient background */
     border: none;
     border-radius: 8px;
     color: #fff;
@@ -23,7 +23,7 @@
   }
   
   .fancy-button:active {
-    background: linear-gradient(135deg, #8c1f73, #c41ad0); /* Darker gradient on click */
+    background: linear-gradient(135deg, #8c1f73, #d01aa0); /* Darker gradient on click */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Reduced shadow */
     transform: translateY(0); /* Reset lift effect */
   }
@@ -33,10 +33,29 @@ body {
     padding: 10px;
     width: 250px; /* Set the desired width */
     height: 500px; /* Set the desired height */
-    background-color: #f0f0f0;
+    background-color: #0bdfef;
     position: relative; /* Allows absolute positioning of children */
   }
 
+  .message {
+    display: none; 
+    background-color: #f0bed8; 
+    color: #333; 
+    border: 2px solid #fb2dcb; 
+    border-radius: 8px; 
+    padding: 10px; 
+    font-size: 15px; 
+    font-weight: bold; 
+    text-align: center; 
+    position: fixed; 
+    top: 10%; 
+    left: 50%; 
+    z-index: 1000; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+  
+    width: 100px;
+    height: auto;
+  }
 
 .meter-container{
     position: relative; /* Positions the element relative to the viewport */
