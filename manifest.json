@@ -1,10 +1,15 @@
 {
   "manifest_version": 3,
+<<<<<<< HEAD
+  "name": "Let's Be Delusional",
+  "description": "Grabs text messages of your DMs with a girl and analyzes your chances with her ;)",
+=======
   "name": "Let's be delusional",
   "description": "Your virtual wingman",
+>>>>>>> 020a49435647fea5139b179b0c21eca06c14884e
   "version": "1.0.0",
   "icons": {
-    "128": "icons/icon.png"
+    "128": "icons/ExtensionImg.png"
   },
   "permissions": [
     "storage",
@@ -19,11 +24,14 @@
   ],
   "action": {
     "default_icon": {
-      "32": "icons/icon.png"
+      "32": "icons/ExtensionImg.png"
     },
-    "default_popup": "index.html",
-    "default_title": "Open Popup"
+    "default_popup": "animations/index.html",
+    "default_title": "Let's Get Delusional"
   },
+<<<<<<< HEAD
+
+=======
   "background": {
     "service_worker": "scripts/background.js"
   },
@@ -39,6 +47,7 @@
       "run_at": "document_idle"
     }
   ],
+>>>>>>> 020a49435647fea5139b179b0c21eca06c14884e
   "commands": {
     "_execute_browser_action": {
       "suggested_key": {
