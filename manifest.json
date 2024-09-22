@@ -3,14 +3,23 @@
   "name": "Let's Be Delusional",
   "description": "Grabs text messages of your DMs with a girl and analyzes your chances with her ;)",
   "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {},
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^1.7.7",
-    "dotenv": "^16.4.5",
-    "express": "^4.21.0",
-    "node-fetch": "^3.3.2"
+  "icons": {
+    "128": "icons/ExtensionImg.png"
+  },
+  "action": {
+    "default_icon": {
+      "32": "icons/ExtensionImg.png"
+    },
+    "default_popup": "animations/index.html",
+    "default_title": "Let's Get Delusional"
+  },
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+O",
+        "mac": "MacCtrl+Shift+O"
+      },
+      "description": "Toggle Popup"
+    }
   }
 }
