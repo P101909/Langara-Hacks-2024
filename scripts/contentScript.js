@@ -36,11 +36,27 @@ function getDivInnerText() {
 
     // Create an array to store the innerText of each div
     let allText = [];
-    
+    let emptyCount = 0;
+
     // Loop through each div and extract the innerText
-    divs.forEach(div => {
-        allText.push(div.innerText);
-    });
+    for (let div of divs) {
+        const innerText = div.innerText.trim(); // Get the text and trim whitespace
+
+        // Check if the innerText is empty
+        if (innerText === '') {
+            emptyCount++;
+        } else {
+            emptyCount = 0; // Reset if a non-empty text is found
+        }
+
+        // If 5 consecutive empty spaces are found, stop adding to allText
+        if (emptyCount >= 2) {
+            console.log("Stopped adding text after encountering 2 consecutive empty spaces.");
+            break;
+        }
+
+        allText.push(innerText);
+    }
     
     // Join all innerText into a single string
     let allTextString = allText.join(' ');
@@ -50,9 +66,17 @@ function getDivInnerText() {
 
 window.addEventListener('load', async () => {
     console.log("Loaded. test div");
-    // Get innerText of all divs and print it to the console
-    let text = getDivInnerText();
-    let previousText = ''; // Store the previous text for comparison
+    // // Get innerText of all divs and print it to the console
+    // let text = getDivInnerText();
+    // let previousText = ''; // Store the previous text for comparison
+    // console.log(text);
+
+
+     // Delay querying the divs by 3 seconds (3000 milliseconds)
+     setTimeout(() => {
+        let text = getDivInnerText();
+        console.log(text);
+    }, 3000); // 3000 milliseconds = 3 seconds
 
     // try {
     //     // Call the getScore function from API_Manager.js
@@ -65,53 +89,3 @@ window.addEventListener('load', async () => {
     // }
 
 });
-
-    
-
-
-// function checkForMessagesDiv() {
-//         const messagesDivs = document.querySelectorAll('div.x78zum5.xdt5ytf');
-//         const texts = [];
-
-//         // Iterate over each div and access its innerText
-//         messagesDivs.forEach((div) => {
-//             texts.push(div.innerText);
-//         });
-
-//         if (texts.length > 0) {
-//             // Convert the array of texts into a single string with each text on a new line
-//             const textContent = texts.join('\n');
-
-//             // Create a Blob from the text content
-//             const blob = new Blob([textContent], { type: 'text/plain' });
-
-//             // Create a temporary anchor element
-//             const a = document.createElement('a');
-//             const url = URL.createObjectURL(blob);
-//             a.href = url;
-//             a.download = 'extracted_text.txt';  // The filename
-
-//             // Append the anchor to the document, click it, and remove it
-//             document.body.appendChild(a);
-//             a.click();
-//             setTimeout(() => {
-//                 document.body.removeChild(a);
-//                 window.URL.revokeObjectURL(url);
-//             }, 0);
-
-//             console.log('Text file saved directly via anchor tag.');
-//         } else {
-//             console.log("No divs with the specified class found.");
-//         }
-//     }
-
-    // // Check for the divs every 2 seconds
-    // const intervalId = setInterval(() => {
-    //     checkForMessagesDiv();
-    // }, 2000);
-
-    // // Stop checking after 1 minute
-    // setTimeout(() => {
-    //     clearInterval(intervalId);
-    //     console.log("Stopped checking for messages div.");
-    // }, 60000); // 1 minute
