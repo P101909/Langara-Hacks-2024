@@ -3,10 +3,16 @@
 // const negativeSign = ["don't like", "hate", "dislike"]; // Negative phrases
 // const textMessages = document.getElementById('text_box')
 const meterFill = document.querySelector('.meter-fill')
+const messageBox = document.querySelector('.message')
 let affectionScore = 0;
 
+function showMessage() {
+  messageBox.textContent = "She LIKES you 100% !! Time to confess!!"
+  messageBox.style.display = 'block'
+}
+
 function generateRandomNum () {
-    return Math.floor(Math.random() * 201) - 100; 
+    return Math.floor(Math.random() * 100) 
 }
 
 function calculateAffectionScore(score) {
@@ -15,7 +21,13 @@ function calculateAffectionScore(score) {
   affectionScore += score
 
   affectionScore = Math.max(0, Math.min(affectionScore, 100));
+  // hit 100%? stops and shows the text box 
+  if (affectionScore >= 100) {
+    clearInterval(updateMeter)
+    showMessage()
+  }
   meterFill.style.width = `${affectionScore}%`
+
   console.log("new affection score: " + affectionScore)
 
 }
@@ -25,7 +37,7 @@ function updateMeter() {
   calculateAffectionScore(randomScore)
 }
 
-setInterval(updateMeter, 1000)
+let updateInterval = setInterval(updateMeter, 1000);
 
 
 

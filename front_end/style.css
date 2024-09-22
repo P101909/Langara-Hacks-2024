@@ -30,3 +30,23 @@ input[type="text"] {
   margin-top: 20px;
   margin-left: 500px;
 }
+
+.message {
+  display: none; 
+  background-color: #ffeb3b; 
+  color: #333; 
+  border: 2px solid #fbc02d; 
+  border-radius: 8px; 
+  padding: 10px; 
+  font-size: 15px; 
+  font-weight: bold; 
+  text-align: center; 
+  position: fixed; 
+  top: 10%; 
+  left: 50%; 
+  z-index: 1000; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+
+  width: 100px;
+  height: auto;
+}
