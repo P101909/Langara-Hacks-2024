@@ -8,6 +8,7 @@ body {
 
 .meter-container {
   display: flex;
+  background-color: rgb(237, 167, 167);
   justify-content: center;
   justify-items: center;
   height:200px;

@@ -48,32 +48,3 @@ textMessages.addEventListener('input', () => {
     meterFill.style.width = `${affectionScore}%`
   }
 })
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const slider = document.getElementById('slider');
-  const meterFill = document.querySelector('.meter-fill');
-  const sliderHandle = document.getElementById('slider-handle');
-
-  function updateMeter() {
-    const value = parseFloat(slider.value);
-    const percentage = ((value + 100) / 200) * 100;
-    const angle = (percentage / 100) * 360;
-
-    // Update the meter fill (this example uses clip-path for visual effect)
-    const clipPath = `polygon(50% 50%, 50% 0%, ${percentage}% 0%, ${percentage}% 100%, 0% 100%, 0% 50%)`;
-    meterFill.style.clipPath = clipPath;
-
-    // Update the slider handle position
-    const radius = 150; // Half of the container's size
-    const x = radius + radius * Math.cos((angle - 90) * Math.PI / 180);
-    const y = radius + radius * Math.sin((angle - 90) * Math.PI / 180);
-    sliderHandle.style.left = `${x}px`;
-    sliderHandle.style.top = `${y}px`;
-  }
-
-  slider.addEventListener('input', updateMeter);
-
-  // Initialize meter and handle position
-  updateMeter();
-});

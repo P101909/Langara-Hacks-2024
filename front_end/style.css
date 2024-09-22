@@ -1,13 +1,14 @@
 
-
 .meter-container{
-  width: 1000px;
+  transform: rotate(-90deg);
+  width: 500px;
   height: 50px;
-  background-color: lightgray;
+  background-color: rgb(245, 171, 171);
   border-radius: 20px;
   border-color: black;
   overflow: hidden;
   position: relative;
+  margin-top: 250px;
  }
 
 .meter-fill {
@@ -27,6 +28,7 @@ input[type="text"] {
   font-size: 16px;
   padding: 5px;
   margin-top: 20px;
+  margin-left: 500px;
 }
 
 
