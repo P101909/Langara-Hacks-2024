@@ -28,6 +28,11 @@ function showMessage25() {
     messageBox.style.display = 'block'
 }
 
+function showMessage0() {
+    messageBox.textContent = "keep dreaming buddy!"
+    messageBox.style.display = 'block'
+}
+
 
 // generate random number, to be deleted once data feching function is implemented
 // function generateRandomNum() {
@@ -46,15 +51,17 @@ function calculateAffectionScore(score) {
     if (affectionScore >= 100) {
         // clearInterval(updateInterval)
         showMessage100()
-    } else if (affectionScore >= 75) {
+    } else if (affectionScore >= 75 ) {
         // clearInterval(updateInterval)
         showMessage75()
     } else if (affectionScore >= 50) {
         // clearInterval(updateInterval)
-        showMessage50()
+        showMessage50() 
     } else if (affectionScore >= 25) {
         // clearInterval(updateInterval)
         showMessage25()
+    } else if (affectionScore >= 0) {
+        showMessage0()
     }
     console.log("new affection score: " + affectionScore)
     return affectionScore
