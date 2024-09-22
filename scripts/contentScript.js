@@ -54,15 +54,15 @@ window.addEventListener('load', async () => {
     let text = getDivInnerText();
     let previousText = ''; // Store the previous text for comparison
 
-    try {
-        // Call the getScore function from API_Manager.js
-        const gptResponse = await getScore(text);
+    // try {
+    //     // Call the getScore function from API_Manager.js
+    //     const gptResponse = await getScore(text);
 
-        // Print GPT's response to the console
-        console.log(gptResponse);
-    } catch (error) {
-        console.error('Error getting GPT-4 response:', error);
-    }
+    //     // Print GPT's response to the console
+    //     console.log(gptResponse);
+    // } catch (error) {
+    //     console.error('Error getting GPT-4 response:', error);
+    // }
 
 });
 
