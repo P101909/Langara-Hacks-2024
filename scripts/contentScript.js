@@ -51,6 +51,12 @@ function getDivInnerText() {
 window.addEventListener('load', async () => {
     console.log("Loaded. test div");
 
+    const button = document.getElementById('fetchButton');
+    button.addEventListener('click', async () => {
+        console.log("Button clicked. Fetching div text and GPT-4 response...");
+        // button clicked
+    });
+
     let text;
     let new_next;
 
@@ -61,7 +67,7 @@ window.addEventListener('load', async () => {
         try {
             // Call the getScore function
             const gptResponse = await getScore(text);
-    
+
             // Print GPT's response to the console
             console.log(gptResponse);
         } catch (error) {
@@ -69,40 +75,8 @@ window.addEventListener('load', async () => {
         }
     }, 500); // 500 milliseconds delay
 
-    // // Example of checking for changes every 500ms
-    // const intervalId = setInterval(() => {
-    //     new_next = getDivInnerText();
-    //     if (text !== new_next) {
-    //         text = new_next;
-    //         console.log("Updated text:", text);
-    //     }
-    // }, 500);
-
-    // Stop checking after 1 minute
     setTimeout(() => {
         clearInterval(intervalId);
         console.log("Stopped checking for messages div");
     }, 60000); // 1 minute
 });
-
-//   // Delay querying the divs by 3 seconds (3000 milliseconds)
-//   setInterval(() => {
-//     const newText = getDivInnerText();
-//     if (window.divInnerText) {
-//         // If the old text is a subset of the new text
-//         const newTextStartPoint = newText.indexOf(window.divInnerText);
-    
-//         if (newTextStartPoint !== 0) {
-//             const textDiff = newText.substr(newTextStartPoint + window.divInnerText.length);
-//             console.log({textDiff})
-//         }
-//     }
-    
-//     window.divInnerText = newText;
-//     console.log({ divInnerText: window.divInnerText });
-//  }, 500); // 3000 milliseconds = 3 seconds
-
-
-
-
-
