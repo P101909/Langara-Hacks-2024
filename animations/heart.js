@@ -46,13 +46,13 @@ function calculateAffectionScore(score) {
     if (affectionScore >= 100) {
         // clearInterval(updateInterval)
         showMessage100()
-    } else if (affectionScore >= 75) {
+    } else if (75 <=affectionScore < 100) {
         // clearInterval(updateInterval)
         showMessage75()
-    } else if (affectionScore >= 50) {
+    } else if ( 50 <= affectionScore < 75) {
         // clearInterval(updateInterval)
-        showMessage50()
-    } else if (affectionScore >= 25) {
+        showMessage50() 
+    } else if ( 25 <= affectionScore < 50) {
         // clearInterval(updateInterval)
         showMessage25()
     }
