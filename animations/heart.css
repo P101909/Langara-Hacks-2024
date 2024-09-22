@@ -1,0 +1,237 @@
+/* Style.css */
+
+#meter {
+    width:300px;
+    height: 30px
+    }
+    
+    
+    .label_for_meter{
+    font-size: 24px;
+    }
+    
+    
+    input[type="text"]{
+    width:100px;
+    height: 50px;
+    vertical-align: top;
+    }
+
+/* Center the heart on the page */
+
+  body {
+    margin: 0;
+    padding: 0;
+    width: 1000px; /* Set the desired width */
+    height: 1000px; /* Set the desired height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  .App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .content {
+    text-align: center;
+  }
+  
+  .graphic {
+    max-width: 100%;
+    height: auto;
+  }
+  /* Heart Shape */
+  .heart {
+    position: relative;
+    width: 12.5px;
+    height: 12.5px;
+    background-color: red;
+    transform: rotate(-45deg);
+    animation: beat 1s infinite ease-in-out;
+    display: 'none';
+  }
+  
+  /* Create the top-left part of the heart */
+  .heart::before,
+  .heart::after {
+    content: '';
+    position: absolute;
+    width: 12.5px;
+    height: 12.5px;
+    background-color: red;
+    border-radius: 50%;
+  }
+  
+  .heart::before {
+    top: -6.25px;
+    left: 0;
+  }
+  
+  .heart::after {
+    top: 0;
+    left: 6.25px;
+  }
+  
+  /* Heartbeat animation */
+  @keyframes beat {
+    0%, 100% {
+      transform: scale(1) rotate(-45deg);
+    }
+    50% {
+      transform: scale(1.2) rotate(-45deg);
+    }
+  }  
+
+  /* Fade-out effect */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Class to trigger fade-out */
+.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+/* Face */
+.face {
+    position: relative;
+    width: 28.125px;  /* Reduced from 37.5px to 28.125px */
+    height: 28.125px; /* Reduced from 37.5px to 28.125px */
+    background-color: #ffcc00;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Eyes */
+.eye {
+    position: absolute;
+    width: 4.21875px;  /* Reduced from 5.625px to 4.21875px */
+    height: 4.21875px; /* Reduced from 5.625px to 4.21875px */
+    background-color: black;
+    border-radius: 50%;
+}
+
+.left-eye {
+    left: 8.4375px;  /* Adjusted from 11.25px to 8.4375px */
+    top: 8.4375px;   /* Adjusted from 11.25px to 8.4375px */
+}
+
+.right-eye {
+    right: 8.4375px; /* Adjusted from 11.25px to 8.4375px */
+    top: 8.4375px;   /* Adjusted from 11.25px to 8.4375px */
+}
+
+/* Tears */
+.tear {
+    position: absolute;
+    width: 2.25px;   /* Reduced from 3px to 2.25px */
+    height: 5.625px; /* Reduced from 7.5px to 5.625px */
+    background-color: #00f;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: drop 1s infinite;
+}
+
+.left-tear {
+    left: 8.4375px;  /* Adjusted from 11.25px to 8.4375px */
+    top: 14.0625px;  /* Adjusted from 18.75px to 14.0625px */
+    animation-delay: 0s;
+}
+
+.right-tear {
+    right: 8.4375px; /* Adjusted from 11.25px to 8.4375px */
+    top: 14.0625px;  /* Adjusted from 18.75px to 14.0625px */
+    animation-delay: 0.5s;
+}
+
+/* Mouth */
+.mouth {
+    position: absolute;
+    bottom: 5.625px;  /* Adjusted from 7.5px to 5.625px */
+    width: 14.0625px; /* Reduced from 18.75px to 14.0625px */
+    height: 8.4375px; /* Reduced from 11.25px to 8.4375px */
+    border-radius: 14.0625px 14.0625px 0 0; /* Adjusted for smaller mouth */
+    border: 1.125px solid black;            /* Reduced from 1.5px to 1.125px */
+    border-bottom: none;
+}
+
+/* Crying Face Style */
+.crying-face {
+    position: absolute;
+    top: 50%; /* Start in the vertical center of the screen */
+    left: 50%; /* Start in the horizontal center of the screen */
+    transform: translate(-50%, -50%); /* Center the face horizontally and vertically */
+    animation: floatUp 5s ease-in-out forwards, fadeOut 5s ease-in forwards;
+    opacity: 1;
+}
+
+/* Floating upwards */
+@keyframes floatUp {
+    0% {
+        transform: translate(-50%, -50%); /* Start at the middle */
+    }
+    100% {
+        transform: translate(-50%, -150%); /* Move upwards by 150% of the height */
+    }
+}
+
+/* Fade-out effect */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* Tear animation: falling down */
+@keyframes drop {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+}
+
+/* Thumbs Up Style */
+.thumbs-up {
+    position: absolute;
+    width: 28.125px;  /* Same width as the crying face */
+    height: 28.125px; /* Same height as the crying face */
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;  /* Adjust position if needed */
+    left: 50%; /* Adjust position if needed */
+    transform: translate(-50%, -50%); /* Center the icon */
+}
+
+/* SVG Styling */
+.thumbs-up svg {
+    width: 100%;
+    height: 100%;
+}
+
+
