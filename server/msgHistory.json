@@ -2,7 +2,39 @@
     "messages": [
         {
             "role": "system",
-            "content": "You are an expert in human relationships and affection, specializing in analyzing romantic interactions. Your task is to perform detailed sentiment analysis on the chat messages exchanged between the user and the person they are texting. Based on this analysis, assign a score between -100 and +100, representing the level of affection in the conversation. A score closer to +100 indicates strong positive affection, while a score closer to -100 indicates negative or neutral affection. Provide ONLY the numerical score as your output. Do not include any additional explanations, analysis, or text."
+            "content": "You are an expert in human relationships and affection, specializing in analyzing romantic interactions. Your task is to perform detailed sentiment analysis on the chat messages exchanged between the user and the person they are texting. Based on this analysis, assign a score between -100 and +100, representing how much the person the user is texting likes the user. A score closer to +100 indicates strong positive feelings towards the user, while a score closer to -100 indicates negative or neutral feelings. Provide ONLY the numerical score as your output. Do not include any additional explanations, analysis, or text."
+        },
+        {
+            "role": "user",
+            "content": "AJ Alagao\nYou sent\nappreciate the effort\nEnter\nAJ Alagao\nAlright alright i was fooling around too much\n❤️\nEnter\nAugust 22\nAug 22, 2024, 5:28 PM\nAJ Alagao\nMentioned you in their story\nEnter\nAugust 28 at 8:02 PM\nAug 28, 2024, 8:02 PM\nAJ Alagao\nMentioned you in their story\nEnter\nYou started an audio call\nAudio call ended\najalagao started an audio call\nYou missed an audio call\nYesterday at 11:44 AM\nSat 11:44 AM\nYou sent\nhttps://github.com/samuelsimoes/chrome-extension-webpack-boilerplate/tree/master/src\ngithub.com\nEnter\nSeen 1m ago\n\n\n\n\nMessage...\n1"
+        },
+        {
+            "role": "assistant",
+            "content": "40"
+        },
+        {
+            "role": "user",
+            "content": "AJ Alagao\nAJ Alagao\nAlright alright i was fooling around too much\n❤️\nEnter\nAugust 22\nAug 22, 2024, 5:28 PM\nAJ Alagao\nMentioned you in their story\nEnter\nAugust 28 at 8:02 PM\nAug 28, 2024, 8:02 PM\nAJ Alagao\nMentioned you in their story\nEnter\nYou started an audio call\nAudio call ended\najalagao started an audio call\nYou missed an audio call\nYesterday at 11:44 AM\nSat 11:44 AM\nYou sent\nhttps://github.com/samuelsimoes/chrome-extension-webpack-boilerplate/tree/master/src\ngithub.com\nEnter\nToday at 11:10 AM\n11:10 AM\nYou sent\ni like you. do u want to go out?\nEnter\nSeen just now\n\n\n\n\nMessage...\n1"
+        },
+        {
+            "role": "assistant",
+            "content": "60"
+        },
+        {
+            "role": "user",
+            "content": "AJ Alagao\nAugust 22\nAug 22, 2024, 5:28 PM\nAJ Alagao\nMentioned you in their story\nEnter\nAugust 28 at 8:02 PM\nAug 28, 2024, 8:02 PM\nAJ Alagao\nMentioned you in their story\nEnter\nYou started an audio call\nAudio call ended\najalagao started an audio call\nYou missed an audio call\nYesterday at 11:44 AM\nSat 11:44 AM\nYou sent\nhttps://github.com/samuelsimoes/chrome-extension-webpack-boilerplate/tree/master/src\ngithub.com\nEnter\nToday at 11:10 AM\n11:10 AM\nYou sent\ni like you. do u want to go out?\nEnter\nAJ Alagao\nNo let’s just be friends\nEnter\n\n\n\n\nMessage...\n1"
+        },
+        {
+            "role": "assistant",
+            "content": "-20"
+        },
+        {
+            "role": "user",
+            "content": "AJ Alagao\nAugust 28 at 8:02 PM\nAug 28, 2024, 8:02 PM\nAJ Alagao\nMentioned you in their story\nEnter\nYou started an audio call\nAudio call ended\najalagao started an audio call\nYou missed an audio call\nYesterday at 11:44 AM\nSat 11:44 AM\nYou sent\nhttps://github.com/samuelsimoes/chrome-extension-webpack-boilerplate/tree/master/src\ngithub.com\nEnter\nToday at 11:10 AM\n11:10 AM\nYou sent\ni like you. do u want to go out?\nEnter\nAJ Alagao\nNo let’s just be friends\nEnter\nYou sent\nwhy????\nbut i like you!!!!\nEnter\nSeen just now\n\n\n\n\nMessage...\n1"
+        },
+        {
+            "role": "assistant",
+            "content": "-30"
         }
     ]
 }
