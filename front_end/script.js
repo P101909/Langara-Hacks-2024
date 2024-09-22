@@ -5,12 +5,23 @@
 const meterFill = document.querySelector('.meter-fill')
 let affectionScore = 0;
 
-function calculateAffectionScore(score) {
 
+function calculateAffectionScore(score) {
+  console.log("current affection score: " + affectionScore)
+  console.log("score to be added: " + score)
   affectionScore += score
   meterFill.style.width = `${affectionScore}%`
-  return affectionScore
+  console.log("new affection score: " + affectionScore)
+
 }
+
+function updateMeter() {
+  const randomScore = Math.random()
+  calculateAffectionScore(randomScore)
+}
+
+setInterval(updateMeter, 1000)
+
 
 
 
