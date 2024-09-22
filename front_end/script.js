@@ -21,17 +21,12 @@ function calculateAffectionScore(score) {
   affectionScore += score
 
   affectionScore = Math.max(0, Math.min(affectionScore, 100));
-<<<<<<< HEAD
   // hit 100%? stops and shows the text box 
   if (affectionScore >= 100) {
-    clearInterval(updateMeter)
+    clearInterval(updateInterval)
     showMessage()
   }
   meterFill.style.width = `${affectionScore}%`
-
-=======
-  meterFill.style.width = ${affectionScore}%
->>>>>>> 0ec362587d557f293e391ddc90cf0a319d21f024
   console.log("new affection score: " + affectionScore)
 
 }
@@ -41,12 +36,8 @@ function updateMeter() {
   calculateAffectionScore(randomScore)
 }
 
-<<<<<<< HEAD
 let updateInterval = setInterval(updateMeter, 1000);
-
-=======
 setInterval(updateMeter, 10000)
->>>>>>> 0ec362587d557f293e391ddc90cf0a319d21f024
 
 
 
