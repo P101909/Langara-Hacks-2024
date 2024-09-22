@@ -1,3 +1,23 @@
+// // server.js
+// const express = require('express');
+// const dotenv = require('dotenv');
+
+// dotenv.config(); // Load API key from .env
+
+// const app = express();
+// const port = process.env.PORT || 3000;
+
+// app.get('/apikey', (req, res) => {
+//     res.json({ apiKey: process.env.OPENAI_API_KEY });
+// });
+
+// app.listen(port, () => {
+//     console.log(`Server running on port ${port}`);
+// });
+
+
+
+
 // server.js
 
 const express = require('express');
@@ -38,7 +58,7 @@ async function getGPTResponse(message) {
         const response = await axios.post(
             'https://api.openai.com/v1/chat/completions',
             {
-                model: 'gpt-4',
+                model: 'gpt-4o-mini',
                 messages: [{ role: 'user', content: message }],
             },
             {
@@ -59,3 +79,29 @@ async function getGPTResponse(message) {
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
+
+async function fetchApiKey() {
+    const data = {
+        messages: messages_str //this is a string
+    }
+
+    try {
+        const response = await fetch('http://localhost:3000/chat', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)   // Data is an object that contains the message
+        }); // Replace with your server's address
+        
+        
+        const data = await response.json();
+        const apiKey = data.apiKey;
+
+        console.log('Fetched API Key:', apiKey); // Print API key to console
+        return apiKey;
+    } catch (error) {
+        console.error('Error fetching API key:', error);
+        return null;
+    }
+}1

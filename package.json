@@ -2,5 +2,8 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "openai": "^4.63.0"
+  },
+  "devDependencies": {
+    "dotenv-webpack": "^8.1.0"
   }
 }
