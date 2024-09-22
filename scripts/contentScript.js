@@ -52,6 +52,8 @@ window.addEventListener('load', async () => {
     console.log("Loaded. test div");
 
     const button = document.getElementById('fetchButton');
+
+    setInterval()
     button.addEventListener('click', async () => {
         console.log("Button clicked. Fetching div text and GPT-4 response...");
         // button clicked
@@ -59,6 +61,7 @@ window.addEventListener('load', async () => {
 
     let text;
     let new_next;
+    let intervalId;
 
     // Delay querying the divs by 500 milliseconds
     setTimeout(async () => {  // Add async here to use await inside
@@ -74,6 +77,8 @@ window.addEventListener('load', async () => {
             console.error('Error getting GPT-4 response:', error);
         }
     }, 500); // 500 milliseconds delay
+
+    
 
     setTimeout(() => {
         clearInterval(intervalId);
