@@ -13,6 +13,7 @@
     text-transform: uppercase;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow effect */
     transition: all 0.3s ease; /* Smooth transition */
+    margin-left: 25px;
   }
   
   .fancy-button:hover {
