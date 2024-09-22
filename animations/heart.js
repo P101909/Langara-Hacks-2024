@@ -3,6 +3,10 @@
 // For now, generateRandomNum generate random numbers raningng from -100 to 100, and those numbers are the input for "calculateAffectionscore" function.
 // THings to do: 1. implement function that fetch data, 2: remove the randomNumberGenerator, 3: change other changes accordingly
 
+const meterFill = document.querySelector('.meter-fill')
+const messageBox = document.querySelector('.message')
+let affectionScore = 0;
+
 // message to be shown once it hits 100%
 function showMessage100() {
   messageBox.textContent = "She LIKES you 100% !! Time to confess!!"
@@ -40,30 +44,30 @@ function calculateAffectionScore(score) {
   affectionScore = Math.max(0, Math.min(affectionScore, 100));
   // hit 100%?, shows the text box, if you want to make the meter to stop once it hits 100%, uncomment the "clearInterval(updateInterval)
   if (affectionScore >= 100) {
-    clearInterval(updateInterval)
+    // clearInterval(updateInterval)
         showMessage100()
     }else if(affectionScore >= 75){
-    clearInterval(updateInterval)
+    // clearInterval(updateInterval)
         showMessage75()
     }else if(affectionScore >= 50){
-    clearInterval(updateInterval)
+    // clearInterval(updateInterval)
         showMessage50()
     }else if(affectionScore >= 25){
-    clearInterval(updateInterval)
+    // clearInterval(updateInterval)
         showMessage25()
     }
-    meterFill.style.width = `${affectionScore}%`
-  console.log("new affection score: " + affectionScore)
-  return affectionScore
+    console.log("new affection score: " + affectionScore)
+    return affectionScore
 }
 
 // update the meter
 function updateMeter() {
-  // to be deleted once implement data fetch from the AI model
-  const randomScore = generateRandomNum()
-
-  // calcualte the affection score
-  calculateAffectionScore(randomScore)
+    // to be deleted once implement data fetch from the AI model
+    const randomScore = generateRandomNum()
+    
+    // calcualte the affection score
+    calculateAffectionScore(randomScore)
+    meterFill.style.width = `${affectionScore}%`
 }
 
 let updateInterval = setInterval(updateMeter, 1000);
