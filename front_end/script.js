@@ -22,6 +22,7 @@ function generateRandomNum () {
 
 // calculate the affection score, score is given by the AI model
 function calculateAffectionScore(score) {
+  // I have these 3 print statement for testing purpose, delete them once everything is done
   console.log("current affection score: " + affectionScore)
   console.log("score to be added: " + score)
   affectionScore += score
