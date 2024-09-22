@@ -5,9 +5,6 @@
 const meterFill = document.querySelector('.meter-fill')
 let affectionScore = 0;
 
-function generateRandNum () {
-  return Math.random()
-}
 
 function calculateAffectionScore(score) {
   console.log("current affection score: " + affectionScore)
@@ -19,7 +16,7 @@ function calculateAffectionScore(score) {
 }
 
 function updateMeter() {
-  const randomScore = generateRandNum()
+  const randomScore = Math.random()
   calculateAffectionScore(randomScore)
 }
 
