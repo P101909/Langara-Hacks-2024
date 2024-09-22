@@ -39,9 +39,9 @@ function calculateAffectionScore(score) {
   // I have these 3 print statement for testing purpose, delete them once everything is done
   console.log("current affection score: " + affectionScore)
   console.log("score to be added: " + score)
-  affectionScore += score
+  affectionScore = score
 
-  affectionScore = Math.max(0, Math.min(affectionScore, 100));
+  // affectionScore = Math.max(0, Math.min(affectionScore, 100));
   // hit 100%?, shows the text box, if you want to make the meter to stop once it hits 100%, uncomment the "clearInterval(updateInterval)
   if (affectionScore >= 100) {
     // clearInterval(updateInterval)
@@ -62,11 +62,11 @@ function calculateAffectionScore(score) {
 
 // update the meter
 function updateMeter() {
-    // to be deleted once implement data fetch from the AI model
-    const randomScore = generateRandomNum()
+    // // to be deleted once implement data fetch from the AI model
+    // const randomScore = generateRandomNum()
     
-    // calcualte the affection score
-    calculateAffectionScore(randomScore)
+    // // calcualte the affection score
+    // calculateAffectionScore(randomScore)
     meterFill.style.width = `${affectionScore}%`
 }
 
