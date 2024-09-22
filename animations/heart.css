@@ -1,7 +1,31 @@
 /* Style.css */
 
 
-
+.fetchButton {
+    background: linear-gradient(135deg, #cb11b2, #2575fc); /* Gradient background */
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    padding: 15px 30px;
+    cursor: pointer;
+    outline: none;
+    text-transform: uppercase;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    transition: all 0.3s ease; /* Smooth transition */
+  }
+  
+  .fancy-button:hover {
+    background: linear-gradient(135deg, #2575fc, #cb1162); /* Reverse gradient on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
+    transform: translateY(-2px); /* Lift effect */
+  }
+  
+  .fancy-button:active {
+    background: linear-gradient(135deg, #8c1f73, #c41ad0); /* Darker gradient on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Reduced shadow */
+    transform: translateY(0); /* Reset lift effect */
+  }
 
 body {
     margin: 10px;

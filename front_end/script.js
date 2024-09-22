@@ -15,7 +15,7 @@ function calculateAffectionScore(score) {
   affectionScore += score
 
   affectionScore = Math.max(0, Math.min(affectionScore, 100));
-  meterFill.style.width = `${affectionScore}%`
+  meterFill.style.width = ${affectionScore}%
   console.log("new affection score: " + affectionScore)
 
 }
@@ -25,8 +25,7 @@ function updateMeter() {
   calculateAffectionScore(randomScore)
 }
 
-setInterval(updateMeter, 1000)
-
+setInterval(updateMeter, 10000)
 
 
 
