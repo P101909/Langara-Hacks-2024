@@ -69,12 +69,13 @@
 //   ]
 // }
 {
-  "name": "server",
+  "manifest_version": 3,
+  "name": "Let's Be Delusional",
+  "description": "Grabs text messages of your DMs with a girl and analyzes your chances with her ;)",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo "Error: no test specified" && exit 1"
+    //"test": "echo "Error: no test specified" && exit 1"
   },
   "author": "",
   "license": "ISC",
